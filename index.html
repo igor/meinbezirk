@@ -389,6 +389,44 @@
       pointer-events: none;
     }
 
+    .card-level {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-level-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .card-level.level-bezirk .card-level-dot {
+      background: var(--color-primary);
+    }
+
+    .card-level.level-bezirk {
+      color: var(--color-text-muted);
+    }
+
+    .card-level.level-land {
+      color: #6b7fa3;
+    }
+
+    .card-level.level-land .card-level-dot {
+      background: #6b7fa3;
+    }
+
+    .feed-card.source-land {
+      border-left-color: #8fa4c4;
+      background: linear-gradient(135deg, #f8fafd 0%, var(--color-bg-card) 40%);
+    }
+
     .card-title {
       font-family: var(--font-body);
       font-size: 1.05rem;
@@ -901,8 +939,9 @@
         <p class="feed-counter" id="feed-counter"></p>
         <div class="feed" id="feed">
 
-          <!-- Card 1: Journey (Eltern/Kita) -->
-          <div class="feed-card category-journey" data-tags="eltern-kita">
+          <!-- Card 1: Journey (Eltern/Kita) — Senat level -->
+          <div class="feed-card category-journey source-land" data-tags="eltern-kita">
+            <div class="card-level level-land"><span class="card-level-dot"></span> Landesentscheidung</div>
             <div class="card-title">Zahnpflege in Kitas ab sofort verpflichtend</div>
             <div class="card-summary">Alle Kitas im Bezirk m&uuml;ssen t&auml;gliches Z&auml;hneputzen in den Tagesablauf integrieren. Eltern werden gebeten, Zahnb&uuml;rsten bereitzustellen.</div>
             <div class="card-meta">
@@ -914,8 +953,9 @@
             </div>
           </div>
 
-          <!-- Card 2: Journey (Eltern/Kita) -->
-          <div class="feed-card category-journey" data-tags="eltern-kita">
+          <!-- Card 2: Journey (Eltern/Kita) — Senat level -->
+          <div class="feed-card category-journey source-land" data-tags="eltern-kita">
+            <div class="card-level level-land"><span class="card-level-dot"></span> Landesentscheidung</div>
             <div class="card-title">Neue Kita-Geb&uuml;hrenordnung ab April</div>
             <div class="card-summary">Elternbeitr&auml;ge f&uuml;r Zusatzbetreuung werden angepasst. Betrifft Betreuung &uuml;ber 8 Stunden t&auml;glich.</div>
             <div class="card-meta">
@@ -927,8 +967,9 @@
             </div>
           </div>
 
-          <!-- Card 3: Journey (Eltern/Kita + Schule) -->
+          <!-- Card 3: Journey (Eltern/Kita + Schule) — Bezirk level -->
           <div class="feed-card category-journey" data-tags="eltern-kita eltern-schule">
+            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung</div>
             <div class="card-title">Anmeldefrist Schulanf&auml;nger 2027/28</div>
             <div class="card-summary">Anmeldung vom 1.&ndash;15. M&auml;rz in der zust&auml;ndigen Grundschule. Personalausweis und Geburtsurkunde mitbringen.</div>
             <div class="card-meta">
@@ -941,8 +982,9 @@
             </div>
           </div>
 
-          <!-- Card 4: Location (Marzahn-Nord) -->
+          <!-- Card 4: Location (Marzahn-Nord) — Bezirk level -->
           <div class="feed-card category-location" data-tags="marzahn-nord">
+            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung</div>
             <div class="card-title">Spielplatz Rosenbecker Stra&szlig;e: Sanierung bis Mai</div>
             <div class="card-summary">Spielplatz wegen Ger&auml;teaustausch gesperrt. Ausweichfl&auml;che am Parkweg eingerichtet.</div>
             <div class="card-meta">
@@ -954,8 +996,9 @@
             </div>
           </div>
 
-          <!-- Card 5: Location (Marzahn-Nord) -->
+          <!-- Card 5: Location (Marzahn-Nord) — Bezirk level -->
           <div class="feed-card category-location" data-tags="marzahn-nord">
+            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung</div>
             <div class="card-title">Tempo-30-Zone M&auml;rkische Allee erweitert</div>
             <div class="card-summary">Abschnitt zwischen Blumberger Damm und Landsberger Allee wird ab M&auml;rz dauerhaft Tempo 30.</div>
             <div class="card-meta">
@@ -967,8 +1010,9 @@
             </div>
           </div>
 
-          <!-- Card 6: Occasion (Bauvorhaben) -->
+          <!-- Card 6: Occasion (Bauvorhaben) — Bezirk level -->
           <div class="feed-card category-occasion" data-tags="bauvorhaben">
+            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung</div>
             <div class="card-title">B&uuml;rgerbeteiligung: Neubaugebiet Cecilienstra&szlig;e</div>
             <div class="card-summary">&Ouml;ffentliche Anh&ouml;rung am 22. M&auml;rz. Online-Anmeldung ab sofort m&ouml;glich.</div>
             <div class="card-meta">
@@ -980,8 +1024,9 @@
             </div>
           </div>
 
-          <!-- Card 7: Mixed (Eltern/Kita + Hellersdorf-Nord) -->
+          <!-- Card 7: Mixed (Eltern/Kita + Hellersdorf-Nord) — Bezirk level -->
           <div class="feed-card category-mixed" data-tags="eltern-kita hellersdorf-nord">
+            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung</div>
             <div class="card-title">Kitapl&auml;tze: 120 neue Pl&auml;tze in Hellersdorf-Nord</div>
             <div class="card-summary">Neubau-Kita er&ouml;ffnet im August. Bevorzugte Vergabe an Anwohner:innen des Einzugsgebiets.</div>
             <div class="card-meta">
@@ -1026,7 +1071,7 @@
   <footer class="site-footer">
     <div class="container">
       <p class="footer-text">
-        MeinBezirk ist ein Konzept von Known Unknowns GmbH, entwickelt im Rahmen des KI-Prototyp-Projekts f&uuml;r den Bezirk Marzahn-Hellersdorf. Dies ist keine offizielle Seite des Bezirksamts.
+        MeinBezirk ist ein Konzept von Known Unknowns GmbH. Dies ist keine offizielle Seite des Bezirksamts.
       </p>
     </div>
   </footer>
