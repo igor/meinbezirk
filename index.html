@@ -458,6 +458,134 @@
       flex-shrink: 0;
     }
 
+    /* ---- SUBSCRIBE CTA ---- */
+    .subscribe-section {
+      padding: 4rem 0;
+      background: var(--color-bg-warm);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .subscribe-card {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .subscribe-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .subscribe-card p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.75rem;
+      line-height: 1.65;
+    }
+
+    .subscribe-summary {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .subscribe-summary:empty {
+      display: none;
+    }
+
+    .subscribe-summary:empty + .subscribe-form .subscribe-note {
+      display: none;
+    }
+
+    .subscribe-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .subscribe-input {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid var(--color-border);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--color-text);
+      background: var(--color-bg-card);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .subscribe-input::placeholder {
+      color: #b0aда6;
+    }
+
+    .subscribe-input:focus {
+      border-color: var(--color-primary);
+    }
+
+    .subscribe-button {
+      padding: 0.8rem 1.5rem;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .subscribe-button:hover {
+      background: #9c372c;
+    }
+
+    .subscribe-button:active {
+      transform: scale(0.97);
+    }
+
+    .subscribe-note {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 1rem;
+    }
+
+    .subscribe-confirmed {
+      display: none;
+      padding: 1.5rem;
+      background: #e8f5e9;
+      border-radius: var(--radius);
+      text-align: center;
+    }
+
+    .subscribe-confirmed h3 {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2e7d32;
+      margin-bottom: 0.35rem;
+    }
+
+    .subscribe-confirmed p {
+      font-size: 0.9rem;
+      color: #4a7c4e;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 480px) {
+      .subscribe-form {
+        flex-direction: column;
+      }
+    }
+
     /* ---- FOOTER ---- */
     .site-footer {
       padding: 3rem 0;
@@ -801,6 +929,28 @@
       </div>
     </section>
 
+    <!-- Subscribe CTA -->
+    <section class="subscribe-section" id="subscribe-section">
+      <div class="container">
+        <div class="subscribe-card">
+          <h2>Diese Meldungen per E-Mail erhalten</h2>
+          <p>Wir benachrichtigen Sie, sobald neue Beschl&uuml;sse zu Ihren Themen ver&ouml;ffentlicht werden. Kein Spam, jederzeit abbestellbar.</p>
+          <div class="subscribe-summary" id="subscribe-summary"></div>
+          <div id="subscribe-form-container">
+            <div class="subscribe-form">
+              <input type="email" class="subscribe-input" placeholder="Ihre E-Mail-Adresse" id="subscribe-email">
+              <button class="subscribe-button" id="subscribe-button">Abonnieren</button>
+            </div>
+            <p class="subscribe-note" id="subscribe-note">Ihre Auswahl oben bestimmt, welche Meldungen Sie erhalten.</p>
+          </div>
+          <div class="subscribe-confirmed" id="subscribe-confirmed">
+            <h3>Anmeldung best&auml;tigt</h3>
+            <p>Sie erhalten ab sofort Meldungen zu Ihren ausgew&auml;hlten Themen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
@@ -851,8 +1001,50 @@
         }
       }
 
-      checkboxes.forEach(cb => cb.addEventListener('change', updateFeed));
+      const subscribeSummary = document.getElementById('subscribe-summary');
+      const subscribeNote = document.getElementById('subscribe-note');
+      const subscribeButton = document.getElementById('subscribe-button');
+      const subscribeEmail = document.getElementById('subscribe-email');
+      const subscribeFormContainer = document.getElementById('subscribe-form-container');
+      const subscribeConfirmed = document.getElementById('subscribe-confirmed');
+
+      const chipClassMap = {
+        journey: 'chip-journey',
+        location: 'chip-location',
+        occasion: 'chip-occasion'
+      };
+
+      function updateSubscribeSummary() {
+        subscribeSummary.innerHTML = '';
+        checkboxes.forEach(cb => {
+          if (cb.checked) {
+            const chip = document.createElement('span');
+            chip.className = `chip ${chipClassMap[cb.dataset.category] || ''}`;
+            chip.textContent = cb.parentElement.textContent.trim();
+            subscribeSummary.appendChild(chip);
+          }
+        });
+        const hasSelection = subscribeSummary.children.length > 0;
+        subscribeNote.style.display = hasSelection ? '' : 'none';
+      }
+
+      subscribeButton.addEventListener('click', () => {
+        if (!subscribeEmail.value) {
+          subscribeEmail.focus();
+          subscribeEmail.style.borderColor = 'var(--color-primary)';
+          return;
+        }
+        subscribeFormContainer.style.display = 'none';
+        subscribeSummary.style.display = 'none';
+        subscribeConfirmed.style.display = 'block';
+      });
+
+      checkboxes.forEach(cb => cb.addEventListener('change', () => {
+        updateFeed();
+        updateSubscribeSummary();
+      }));
       updateFeed();
+      updateSubscribeSummary();
 
       // Sticky shadow effect
       const observer = new IntersectionObserver(
