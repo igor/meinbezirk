@@ -624,21 +624,83 @@
     .feed-card:nth-child(6) { animation-delay: 0.3s; }
     .feed-card:nth-child(7) { animation-delay: 0.35s; }
 
+    /* ---- MOBILE FILTER TOGGLE ---- */
+    .filter-toggle {
+      display: none;
+    }
+
+    .filter-active-chips {
+      display: none;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.75rem;
+    }
+
+    .filter-toggle-chevron {
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .filter-toggle[aria-expanded="true"] .filter-toggle-chevron {
+      transform: rotate(180deg);
+    }
+
     /* ---- RESPONSIVE ---- */
     @media (max-width: 768px) {
       .hero { padding: 3.5rem 0 3rem; }
       .hero h1 { font-size: 1.6rem; }
       .hero-quote { font-size: 1.05rem; }
       .steps-grid { grid-template-columns: 1fr; gap: 1.75rem; }
-      .filter-grid { grid-template-columns: 1fr; gap: 1.25rem; }
-      .filters-section { position: static; }
       .site-header .container { flex-direction: column; gap: 0.25rem; }
       .container { padding: 0 1.25rem; }
+
+      .filters-section { position: static; }
+      .filters-header { display: none; }
+
+      .filter-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        font-family: var(--font-body);
+        color: var(--color-text);
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .filter-toggle-label {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .filter-active-chips {
+        display: flex;
+      }
+
+      .filter-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, margin-top 0.35s ease, opacity 0.25s ease;
+        opacity: 0;
+        margin-top: 0;
+      }
+
+      .filter-grid.expanded {
+        max-height: 1000px;
+        opacity: 1;
+        margin-top: 1.25rem;
+      }
     }
 
     @media (max-width: 480px) {
       .hero h1 { font-size: 1.35rem; }
       .feed-card { padding: 1.1rem 1.15rem; }
+      .filter-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -727,7 +789,14 @@
           <div class="filters-title">Was interessiert Sie?</div>
           <div class="filters-hint">Auswahl filtert die Meldungen unten</div>
         </div>
-        <div class="filter-grid">
+        <button class="filter-toggle" id="filter-toggle" aria-expanded="false" aria-controls="filter-grid">
+          <div>
+            <span class="filter-toggle-label">Filter anpassen</span>
+            <div class="filter-active-chips" id="filter-active-chips"></div>
+          </div>
+          <svg class="filter-toggle-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="5,8 10,13 15,8"/></svg>
+        </button>
+        <div class="filter-grid" id="filter-grid">
 
           <!-- Journey -->
           <div class="filter-category">
@@ -1045,6 +1114,33 @@
       }));
       updateFeed();
       updateSubscribeSummary();
+
+      // Mobile filter toggle
+      const filterToggle = document.getElementById('filter-toggle');
+      const filterGrid = document.getElementById('filter-grid');
+      const filterActiveChips = document.getElementById('filter-active-chips');
+
+      function updateMobileChips() {
+        filterActiveChips.innerHTML = '';
+        checkboxes.forEach(cb => {
+          if (cb.checked) {
+            const chip = document.createElement('span');
+            chip.className = `chip ${chipClassMap[cb.dataset.category] || ''}`;
+            chip.textContent = cb.parentElement.textContent.trim();
+            filterActiveChips.appendChild(chip);
+          }
+        });
+      }
+
+      filterToggle.addEventListener('click', () => {
+        const expanded = filterToggle.getAttribute('aria-expanded') === 'true';
+        filterToggle.setAttribute('aria-expanded', !expanded);
+        filterGrid.classList.toggle('expanded', !expanded);
+      });
+
+      // Update mobile chips on checkbox change
+      checkboxes.forEach(cb => cb.addEventListener('change', updateMobileChips));
+      updateMobileChips();
 
       // Sticky shadow effect
       const observer = new IntersectionObserver(
