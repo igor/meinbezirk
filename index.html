@@ -427,6 +427,32 @@
       background: linear-gradient(135deg, #f8fafd 0%, var(--color-bg-card) 40%);
     }
 
+    .card-timing {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 100px;
+      margin-left: 0.75rem;
+    }
+
+    .card-timing.timing-upcoming {
+      background: #fff3e0;
+      color: #e65100;
+    }
+
+    .card-timing.timing-active {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .card-timing.timing-planned {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
     .card-title {
       font-family: var(--font-body);
       font-size: 1.05rem;
@@ -661,6 +687,7 @@
     .feed-card:nth-child(5) { animation-delay: 0.25s; }
     .feed-card:nth-child(6) { animation-delay: 0.3s; }
     .feed-card:nth-child(7) { animation-delay: 0.35s; }
+    .feed-card:nth-child(8) { animation-delay: 0.4s; }
 
     /* ---- MOBILE FILTER TOGGLE ---- */
     .filter-toggle {
@@ -953,89 +980,107 @@
             </div>
           </div>
 
-          <!-- Card 2: Journey (Eltern/Kita) — Senat level -->
-          <div class="feed-card category-journey source-land" data-tags="eltern-kita">
-            <div class="card-level level-land"><span class="card-level-dot"></span> Landesentscheidung</div>
-            <div class="card-title">Neue Kita-Geb&uuml;hrenordnung ab April</div>
-            <div class="card-summary">Elternbeitr&auml;ge f&uuml;r Zusatzbetreuung werden angepasst. Betrifft Betreuung &uuml;ber 8 Stunden t&auml;glich.</div>
+          <!-- Card 2: Neues Gymnasium — Bezirk level -->
+          <div class="feed-card category-journey" data-tags="eltern-schule kaulsdorf mahlsdorf">
+            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung <span class="card-timing timing-active">Seit Schuljahr 2025/26</span></div>
+            <div class="card-title">Neues Gymnasium in Mahlsdorf er&ouml;ffnet &mdash; 830 Pl&auml;tze</div>
+            <div class="card-summary">Das von der HOWOGE errichtete Gymnasium f&uuml;r die Schulplanungsregionen Kaulsdorf und Mahlsdorf ist zum Schuljahr 2025/26 in Betrieb gegangen. Anmeldungen f&uuml;r das kommende Schuljahr laufen &uuml;ber die Schulbeh&ouml;rde.</div>
             <div class="card-meta">
               <span class="chip chip-source">Bezirksamt MaHe</span>
               <span class="card-meta-separator"></span>
-              <span class="chip chip-date">28.01.2026</span>
+              <span class="chip chip-date">August 2025</span>
               <span class="card-meta-separator"></span>
-              <span class="chip chip-journey">Eltern / Kita</span>
-            </div>
-          </div>
-
-          <!-- Card 3: Journey (Eltern/Kita + Schule) — Bezirk level -->
-          <div class="feed-card category-journey" data-tags="eltern-kita eltern-schule">
-            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung</div>
-            <div class="card-title">Anmeldefrist Schulanf&auml;nger 2027/28</div>
-            <div class="card-summary">Anmeldung vom 1.&ndash;15. M&auml;rz in der zust&auml;ndigen Grundschule. Personalausweis und Geburtsurkunde mitbringen.</div>
-            <div class="card-meta">
-              <span class="chip chip-source">Bezirksamt MaHe</span>
-              <span class="card-meta-separator"></span>
-              <span class="chip chip-date">05.02.2026</span>
-              <span class="card-meta-separator"></span>
-              <span class="chip chip-journey">Eltern / Kita</span>
               <span class="chip chip-journey">Eltern / Schule</span>
+              <span class="chip chip-location">Kaulsdorf</span>
+              <span class="chip chip-location">Mahlsdorf</span>
             </div>
           </div>
 
-          <!-- Card 4: Location (Marzahn-Nord) — Bezirk level -->
-          <div class="feed-card category-location" data-tags="marzahn-nord">
-            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung</div>
-            <div class="card-title">Spielplatz Rosenbecker Stra&szlig;e: Sanierung bis Mai</div>
-            <div class="card-summary">Spielplatz wegen Ger&auml;teaustausch gesperrt. Ausweichfl&auml;che am Parkweg eingerichtet.</div>
-            <div class="card-meta">
-              <span class="chip chip-source">BVV-Beschluss</span>
-              <span class="card-meta-separator"></span>
-              <span class="chip chip-date">18.01.2026</span>
-              <span class="card-meta-separator"></span>
-              <span class="chip chip-location">Marzahn-Nord</span>
-            </div>
-          </div>
-
-          <!-- Card 5: Location (Marzahn-Nord) — Bezirk level -->
-          <div class="feed-card category-location" data-tags="marzahn-nord">
-            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung</div>
-            <div class="card-title">Tempo-30-Zone M&auml;rkische Allee erweitert</div>
-            <div class="card-summary">Abschnitt zwischen Blumberger Damm und Landsberger Allee wird ab M&auml;rz dauerhaft Tempo 30.</div>
-            <div class="card-meta">
-              <span class="chip chip-source">BVV-Beschluss</span>
-              <span class="card-meta-separator"></span>
-              <span class="chip chip-date">03.02.2026</span>
-              <span class="card-meta-separator"></span>
-              <span class="chip chip-location">Marzahn-Nord</span>
-            </div>
-          </div>
-
-          <!-- Card 6: Occasion (Bauvorhaben) — Bezirk level -->
-          <div class="feed-card category-occasion" data-tags="bauvorhaben">
-            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung</div>
-            <div class="card-title">B&uuml;rgerbeteiligung: Neubaugebiet Cecilienstra&szlig;e</div>
-            <div class="card-summary">&Ouml;ffentliche Anh&ouml;rung am 22. M&auml;rz. Online-Anmeldung ab sofort m&ouml;glich.</div>
+          <!-- Card 3: Bürgerhaushalt — Bezirk level, affects all -->
+          <div class="feed-card category-occasion" data-tags="bauvorhaben wahlen" data-scope="all">
+            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung <span class="card-timing timing-upcoming">Kommt 2026</span></div>
+            <div class="card-title">B&uuml;rgerhaushalt: Online-Portal f&uuml;r Marzahn-Hellersdorf</div>
+            <div class="card-summary">Der Bezirk f&uuml;hrt ein Online-Portal ein, &uuml;ber das B&uuml;rger:innen Verbesserungsvorschl&auml;ge f&uuml;r ihre Nachbarschaft einreichen und &uuml;ber die Verwendung &ouml;ffentlicher Mittel abstimmen k&ouml;nnen.</div>
             <div class="card-meta">
               <span class="chip chip-source">Bezirksamt MaHe</span>
               <span class="card-meta-separator"></span>
-              <span class="chip chip-date">10.02.2026</span>
+              <span class="chip chip-date">2026</span>
               <span class="card-meta-separator"></span>
+              <span class="chip chip-occasion">Alle B&uuml;rger:innen</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Gehwegpilotprojekt Biesenhorst — Bezirk level -->
+          <div class="feed-card category-location" data-tags="biesdorf bauvorhaben">
+            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung <span class="card-timing timing-upcoming">Ausschreibung Q1 2026</span></div>
+            <div class="card-title">Neue Gehwege f&uuml;r Biesenhorst &mdash; Pilotprojekt startet</div>
+            <div class="card-summary">Im Rahmen des Programms &bdquo;Neue Gehwege f&uuml;r Marzahn-Hellersdorf&ldquo; werden rund zehn Stra&szlig;en in Biesenhorst saniert, darunter Langer Weg, Hauptweg und Fuchsbergeweg. Baubeginn im Laufe des Jahres.</div>
+            <div class="card-meta">
+              <span class="chip chip-source">Bezirksamt MaHe / SGA</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-date">Q1 2026</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-location">Biesdorf</span>
               <span class="chip chip-occasion">Bauvorhaben</span>
             </div>
           </div>
 
-          <!-- Card 7: Mixed (Eltern/Kita + Hellersdorf-Nord) — Bezirk level -->
-          <div class="feed-card category-mixed" data-tags="eltern-kita hellersdorf-nord">
-            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung</div>
-            <div class="card-title">Kitapl&auml;tze: 120 neue Pl&auml;tze in Hellersdorf-Nord</div>
-            <div class="card-summary">Neubau-Kita er&ouml;ffnet im August. Bevorzugte Vergabe an Anwohner:innen des Einzugsgebiets.</div>
+          <!-- Card 5: Spielplatz Seelgraben — Bezirk level -->
+          <div class="feed-card category-mixed" data-tags="eltern-kita marzahn-mitte bauvorhaben">
+            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung <span class="card-timing timing-planned">In Planung</span></div>
+            <div class="card-title">Spielplatz Seelgraben wird inklusiver Spielplatz</div>
+            <div class="card-summary">Der Spielplatz am Seelgraben soll f&uuml;r rund 649.000&thinsp;&euro; zu einem inklusiven Spielplatz umgebaut werden. Zeitplan abh&auml;ngig von der Finanzierung &uuml;ber das KSSP-Programm.</div>
+            <div class="card-meta">
+              <span class="chip chip-source">BVV-Beschluss</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-date">2025/2026</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-journey">Eltern / Kita</span>
+              <span class="chip chip-location">Marzahn-Mitte</span>
+              <span class="chip chip-occasion">Bauvorhaben</span>
+            </div>
+          </div>
+
+          <!-- Card 6: Alice-Salomon-Platz — Bezirk level -->
+          <div class="feed-card category-location" data-tags="hellersdorf-nord bauvorhaben">
+            <div class="card-level level-bezirk"><span class="card-level-dot"></span> Bezirksentscheidung <span class="card-timing timing-upcoming">Umbau ab 2026</span></div>
+            <div class="card-title">Alice-Salomon-Platz wird umgestaltet</div>
+            <div class="card-summary">Der zentrale Platz in der Hellen Mitte erh&auml;lt mehr Gr&uuml;nfl&auml;chen und Aufenthaltsqualit&auml;t. Ziel ist eine attraktivere Gestaltung des &ouml;ffentlichen Raums im Stadtteilzentrum Hellersdorf.</div>
             <div class="card-meta">
               <span class="chip chip-source">Bezirksamt MaHe</span>
               <span class="card-meta-separator"></span>
-              <span class="chip chip-date">15.02.2026</span>
+              <span class="chip chip-date">2026</span>
               <span class="card-meta-separator"></span>
-              <span class="chip chip-journey">Eltern / Kita</span>
               <span class="chip chip-location">Hellersdorf-Nord</span>
+              <span class="chip chip-occasion">Bauvorhaben</span>
+            </div>
+          </div>
+
+          <!-- Card 7: Mietspiegel 2026 — Landes level -->
+          <div class="feed-card category-journey source-land" data-tags="mieter">
+            <div class="card-level level-land"><span class="card-level-dot"></span> Landesentscheidung <span class="card-timing timing-upcoming">Fr&uuml;hsommer 2026</span></div>
+            <div class="card-title">Berliner Mietspiegel 2026 erscheint im Fr&uuml;hsommer</div>
+            <div class="card-summary">Die Datenerhebung f&uuml;r den neuen qualifizierten Mietspiegel lief von September bis Dezember 2025. Der Mietspiegel bestimmt die ortsübliche Vergleichsmiete und begrenzt Mieterh&ouml;hungen auf maximal 15&thinsp;% in drei Jahren.</div>
+            <div class="card-meta">
+              <span class="chip chip-source">Senatsverwaltung f&uuml;r Stadtentwicklung</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-date">Fr&uuml;hsommer 2026</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-journey">Mieter:in</span>
+            </div>
+          </div>
+
+          <!-- Card 8: Verwaltungsreform — Landes level, affects all -->
+          <div class="feed-card source-land" data-tags="" data-scope="all">
+            <div class="card-level level-land"><span class="card-level-dot"></span> Landesentscheidung <span class="card-timing timing-active">Seit 01.01.2026</span></div>
+            <div class="card-title">Verwaltungsreform: Einheitliche Formulare und Antr&auml;ge</div>
+            <div class="card-summary">Seit Januar 2026 gilt das neue Landesorganisationsgesetz. Formulare und Verwaltungsprozesse werden berlinweit vereinheitlicht. Neue Schlichtungsstelle bei Konflikten zwischen Senat und Bezirken. Wer Aufgaben zuweist, muss auch die Mittel bereitstellen (Konnexit&auml;tsprinzip).</div>
+            <div class="card-meta">
+              <span class="chip chip-source">Berliner Senat</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-date">01.01.2026</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-occasion">Alle B&uuml;rger:innen</span>
             </div>
           </div>
 
@@ -1097,8 +1142,9 @@
         const total = cards.length;
 
         cards.forEach(card => {
-          const cardTags = card.dataset.tags.split(' ');
-          const matches = activeTags.size === 0 || cardTags.some(tag => activeTags.has(tag));
+          const isGlobal = card.dataset.scope === 'all';
+          const cardTags = card.dataset.tags ? card.dataset.tags.split(' ').filter(t => t) : [];
+          const matches = activeTags.size === 0 || isGlobal || cardTags.some(tag => activeTags.has(tag));
 
           if (matches) {
             card.classList.remove('dimmed');
