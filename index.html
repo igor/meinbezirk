@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MeinBezirk — Was Ihr Bezirk entscheidet, was Sie betrifft</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #b84233;
+      --color-primary-soft: #b8423320;
+      --color-text: #1a1a2e;
+      --color-text-muted: #5a5a72;
+      --color-bg: #faf9f7;
+      --color-bg-warm: #f3f0eb;
+      --color-bg-card: #ffffff;
+      --color-border: #e8e4de;
+      --color-chip-journey: #fce8e6;
+      --color-chip-journey-text: #b84233;
+      --color-chip-journey-border: #b8423340;
+      --color-chip-location: #e4edf6;
+      --color-chip-location-text: #2b5a8c;
+      --color-chip-location-border: #2b5a8c30;
+      --color-chip-occasion: #fdf3e0;
+      --color-chip-occasion-text: #a66b1b;
+      --color-chip-occasion-border: #a66b1b30;
+      --color-source: #6b6b80;
+      --font-display: 'Libre Baskerville', Georgia, serif;
+      --font-body: 'Outfit', system-ui, sans-serif;
+      --max-width: 920px;
+      --shadow-card: 0 1px 4px rgba(26,26,46,0.06), 0 0 0 1px rgba(26,26,46,0.03);
+      --shadow-card-hover: 0 4px 16px rgba(26,26,46,0.08), 0 0 0 1px rgba(26,26,46,0.04);
+      --radius: 10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ---- HEADER ---- */
+    .site-header {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-bg);
+      position: relative;
+      z-index: 20;
+    }
+
+    .site-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .site-wordmark {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+    }
+
+    .site-wordmark span {
+      color: var(--color-primary);
+    }
+
+    .site-attribution {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      padding: 5rem 0 4rem;
+      background: var(--color-bg-warm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+    }
+
+    .hero-content {
+      max-width: 640px;
+      animation: fadeUp 0.8s ease-out both;
+    }
+
+    .hero-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.75;
+      color: var(--color-text);
+      padding-left: 1.75rem;
+      border-left: 3px solid var(--color-primary);
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      color: var(--color-text);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+
+    /* ---- HOW IT WORKS ---- */
+    .how-it-works {
+      padding: 4rem 0;
+      background: var(--color-bg);
+    }
+
+    .section-title {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-primary);
+      margin-bottom: 2.5rem;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .step {
+      animation: fadeUp 0.6s ease-out both;
+    }
+
+    .step:nth-child(1) { animation-delay: 0.15s; }
+    .step:nth-child(2) { animation-delay: 0.25s; }
+    .step:nth-child(3) { animation-delay: 0.35s; }
+
+    .step-icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 1.25rem;
+      color: var(--color-primary);
+    }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .step h3 {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ---- FILTERS ---- */
+    .filters-section {
+      padding: 2.5rem 0 2rem;
+      background: var(--color-bg-warm);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 15;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .filters-section.is-stuck {
+      box-shadow: 0 4px 20px rgba(26,26,46,0.08);
+    }
+
+    .filters-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1.5rem;
+    }
+
+    .filters-title {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+    }
+
+    .filters-hint {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .filter-category h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .category-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .category-dot.journey { background: var(--color-chip-journey-text); }
+    .category-dot.location { background: var(--color-chip-location-text); }
+    .category-dot.occasion { background: var(--color-chip-occasion-text); }
+
+    .filter-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .filter-label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--color-text);
+      padding: 0.3rem 0;
+      transition: color 0.2s;
+      user-select: none;
+    }
+
+    .filter-label:hover {
+      color: var(--color-primary);
+    }
+
+    .filter-checkbox {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--color-border);
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .filter-checkbox:checked {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    .filter-checkbox:checked::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 6px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .filter-checkbox[data-category="location"]:checked {
+      background: var(--color-chip-location-text);
+      border-color: var(--color-chip-location-text);
+    }
+
+    .filter-checkbox[data-category="occasion"]:checked {
+      background: var(--color-chip-occasion-text);
+      border-color: var(--color-chip-occasion-text);
+    }
+
+    /* ---- FEED ---- */
+    .feed-section {
+      padding: 3rem 0 5rem;
+      background: var(--color-bg);
+      min-height: 60vh;
+    }
+
+    .feed-counter {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .feed-counter strong {
+      color: var(--color-text);
+      font-weight: 700;
+    }
+
+    .feed {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feed-card {
+      background: var(--color-bg-card);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.5rem;
+      box-shadow: var(--shadow-card);
+      border-left: 4px solid transparent;
+      transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+
+    .feed-card:hover {
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .feed-card.category-journey { border-left-color: var(--color-chip-journey-text); }
+    .feed-card.category-location { border-left-color: var(--color-chip-location-text); }
+    .feed-card.category-occasion { border-left-color: var(--color-chip-occasion-text); }
+    .feed-card.category-mixed {
+      border-image: linear-gradient(to bottom, var(--color-chip-journey-text), var(--color-chip-location-text)) 1;
+    }
+
+    .feed-card.dimmed {
+      opacity: 0.12;
+      transform: scale(0.985);
+      pointer-events: none;
+    }
+
+    .card-title {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+    }
+
+    .card-summary {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .chip-source {
+      background: transparent;
+      border: 1px solid var(--color-border);
+      color: var(--color-source);
+    }
+
+    .chip-date {
+      color: var(--color-text-muted);
+      font-weight: 400;
+      padding: 0.25rem 0;
+    }
+
+    .chip-journey {
+      background: var(--color-chip-journey);
+      color: var(--color-chip-journey-text);
+      border: 1px solid var(--color-chip-journey-border);
+    }
+
+    .chip-location {
+      background: var(--color-chip-location);
+      color: var(--color-chip-location-text);
+      border: 1px solid var(--color-chip-location-border);
+    }
+
+    .chip-occasion {
+      background: var(--color-chip-occasion);
+      color: var(--color-chip-occasion-text);
+      border: 1px solid var(--color-chip-occasion-border);
+    }
+
+    .card-meta-separator {
+      width: 1px;
+      height: 14px;
+      background: var(--color-border);
+      flex-shrink: 0;
+    }
+
+    /* ---- FOOTER ---- */
+    .site-footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--color-border);
+      background: var(--color-bg-warm);
+    }
+
+    .footer-text {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* ---- ANIMATIONS ---- */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feed-card {
+      animation: fadeUp 0.5s ease-out both;
+    }
+
+    .feed-card:nth-child(1) { animation-delay: 0.05s; }
+    .feed-card:nth-child(2) { animation-delay: 0.1s; }
+    .feed-card:nth-child(3) { animation-delay: 0.15s; }
+    .feed-card:nth-child(4) { animation-delay: 0.2s; }
+    .feed-card:nth-child(5) { animation-delay: 0.25s; }
+    .feed-card:nth-child(6) { animation-delay: 0.3s; }
+    .feed-card:nth-child(7) { animation-delay: 0.35s; }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .hero { padding: 3.5rem 0 3rem; }
+      .hero h1 { font-size: 1.6rem; }
+      .hero-quote { font-size: 1.05rem; }
+      .steps-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+      .filter-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+      .filters-section { position: static; }
+      .site-header .container { flex-direction: column; gap: 0.25rem; }
+      .container { padding: 0 1.25rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.35rem; }
+      .feed-card { padding: 1.1rem 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="site-wordmark">Mein<span>Bezirk</span></div>
+      <div class="site-attribution">Ein Konzept von Known Unknowns</div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <blockquote class="hero-quote">
+            &bdquo;Heute beim Abholen hat mir jemand erz&auml;hlt, dass Kitas jetzt verpflichtet sind, mit den Kindern Z&auml;hne zu putzen. Woher h&auml;tte ich das wissen sollen?&ldquo;
+          </blockquote>
+          <h1>Was Ihr Bezirk entscheidet&thinsp;&mdash;&thinsp;was Sie betrifft.</h1>
+          <p class="hero-subtitle">
+            Ihr Bezirk trifft st&auml;ndig Entscheidungen, die Ihren Alltag betreffen&thinsp;&mdash;&thinsp;neue Regeln, Fristen, Bauvorhaben, Spielplatzsperrungen. MeinBezirk bringt diese Informationen zu Ihnen, gefiltert nach dem, was f&uuml;r Sie relevant ist. Keine PDFs. Kein Amtsdeutsch. Nur das, was z&auml;hlt.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works">
+      <div class="container">
+        <div class="section-title">So funktioniert&rsquo;s</div>
+        <div class="steps-grid">
+
+          <div class="step">
+            <svg class="step-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="6" width="28" height="32" rx="3"/>
+              <line x1="15" y1="15" x2="22" y2="15"/>
+              <line x1="15" y1="21" x2="29" y2="21"/>
+              <line x1="15" y1="27" x2="26" y2="27"/>
+              <circle cx="15" cy="15" r="0" fill="currentColor"/>
+              <polyline points="12,14 14,16.5 18,12" stroke-width="2"/>
+            </svg>
+            <div class="step-number">01</div>
+            <h3>W&auml;hlen Sie Ihre Themen</h3>
+            <p>Lebenslage, Ort, Anl&auml;sse&thinsp;&mdash;&thinsp;Sie bestimmen, was f&uuml;r Sie relevant ist.</p>
+          </div>
+
+          <div class="step">
+            <svg class="step-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="22" cy="22" r="14"/>
+              <circle cx="22" cy="22" r="8" stroke-dasharray="3 3"/>
+              <circle cx="22" cy="22" r="2" fill="currentColor" stroke="none"/>
+              <line x1="22" y1="8" x2="22" y2="4"/>
+              <line x1="22" y1="40" x2="22" y2="36"/>
+              <line x1="8" y1="22" x2="4" y2="22"/>
+              <line x1="40" y1="22" x2="36" y2="22"/>
+            </svg>
+            <div class="step-number">02</div>
+            <h3>Wir beobachten die Beschl&uuml;sse</h3>
+            <p>BVV-Sitzungen, Senatsentscheidungen, Bezirksamts-Mitteilungen&thinsp;&mdash;&thinsp;automatisch erfasst und eingeordnet.</p>
+          </div>
+
+          <div class="step">
+            <svg class="step-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 6 C22 6 30 10 30 20 C30 28 22 34 22 38 C22 34 14 28 14 20 C14 10 22 6 22 6Z"/>
+              <circle cx="22" cy="20" r="4"/>
+              <line x1="18" y1="4" x2="16" y2="1"/>
+              <line x1="26" y1="4" x2="28" y2="1"/>
+            </svg>
+            <div class="step-number">03</div>
+            <h3>Sie erfahren, was Sie betrifft</h3>
+            <p>Verst&auml;ndlich aufbereitet, direkt an Sie. Kein PDF-Dschungel, kein Beh&ouml;rdendeutsch.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-section" id="filters">
+      <div class="container">
+        <div class="filters-header">
+          <div class="filters-title">Was interessiert Sie?</div>
+          <div class="filters-hint">Auswahl filtert die Meldungen unten</div>
+        </div>
+        <div class="filter-grid">
+
+          <!-- Journey -->
+          <div class="filter-category">
+            <h4><span class="category-dot journey"></span> Lebenslage</h4>
+            <div class="filter-options">
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="journey" data-tag="eltern-kita" checked>
+                Eltern / Kita
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="journey" data-tag="eltern-schule">
+                Eltern / Schule
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="journey" data-tag="mieter">
+                Mieter:in
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="journey" data-tag="eigentuemer">
+                Eigent&uuml;mer:in
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="journey" data-tag="gewerbe">
+                Gewerbetreibende
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="journey" data-tag="senior">
+                Senior:in
+              </label>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="filter-category">
+            <h4><span class="category-dot location"></span> Ort</h4>
+            <div class="filter-options">
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="location" data-tag="marzahn-nord" checked>
+                Marzahn-Nord
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="location" data-tag="marzahn-mitte">
+                Marzahn-Mitte
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="location" data-tag="hellersdorf-nord">
+                Hellersdorf-Nord
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="location" data-tag="hellersdorf-sued">
+                Hellersdorf-S&uuml;d
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="location" data-tag="biesdorf">
+                Biesdorf
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="location" data-tag="kaulsdorf">
+                Kaulsdorf
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="location" data-tag="mahlsdorf">
+                Mahlsdorf
+              </label>
+            </div>
+          </div>
+
+          <!-- Occasions -->
+          <div class="filter-category">
+            <h4><span class="category-dot occasion"></span> Anl&auml;sse</h4>
+            <div class="filter-options">
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="occasion" data-tag="kita-anmeldung">
+                Kita-Anmeldung
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="occasion" data-tag="schuleingang">
+                Schuleingang
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="occasion" data-tag="heizsaison">
+                Heizsaison
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="occasion" data-tag="bauvorhaben" checked>
+                Bauvorhaben
+              </label>
+              <label class="filter-label">
+                <input type="checkbox" class="filter-checkbox" data-category="occasion" data-tag="wahlen">
+                Wahlen
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Feed -->
+    <section class="feed-section">
+      <div class="container">
+        <p class="feed-counter" id="feed-counter"></p>
+        <div class="feed" id="feed">
+
+          <!-- Card 1: Journey (Eltern/Kita) -->
+          <div class="feed-card category-journey" data-tags="eltern-kita">
+            <div class="card-title">Zahnpflege in Kitas ab sofort verpflichtend</div>
+            <div class="card-summary">Alle Kitas im Bezirk m&uuml;ssen t&auml;gliches Z&auml;hneputzen in den Tagesablauf integrieren. Eltern werden gebeten, Zahnb&uuml;rsten bereitzustellen.</div>
+            <div class="card-meta">
+              <span class="chip chip-source">Senatsverwaltung f&uuml;r Bildung</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-date">12.02.2026</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-journey">Eltern / Kita</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Journey (Eltern/Kita) -->
+          <div class="feed-card category-journey" data-tags="eltern-kita">
+            <div class="card-title">Neue Kita-Geb&uuml;hrenordnung ab April</div>
+            <div class="card-summary">Elternbeitr&auml;ge f&uuml;r Zusatzbetreuung werden angepasst. Betrifft Betreuung &uuml;ber 8 Stunden t&auml;glich.</div>
+            <div class="card-meta">
+              <span class="chip chip-source">Bezirksamt MaHe</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-date">28.01.2026</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-journey">Eltern / Kita</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Journey (Eltern/Kita + Schule) -->
+          <div class="feed-card category-journey" data-tags="eltern-kita eltern-schule">
+            <div class="card-title">Anmeldefrist Schulanf&auml;nger 2027/28</div>
+            <div class="card-summary">Anmeldung vom 1.&ndash;15. M&auml;rz in der zust&auml;ndigen Grundschule. Personalausweis und Geburtsurkunde mitbringen.</div>
+            <div class="card-meta">
+              <span class="chip chip-source">Bezirksamt MaHe</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-date">05.02.2026</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-journey">Eltern / Kita</span>
+              <span class="chip chip-journey">Eltern / Schule</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Location (Marzahn-Nord) -->
+          <div class="feed-card category-location" data-tags="marzahn-nord">
+            <div class="card-title">Spielplatz Rosenbecker Stra&szlig;e: Sanierung bis Mai</div>
+            <div class="card-summary">Spielplatz wegen Ger&auml;teaustausch gesperrt. Ausweichfl&auml;che am Parkweg eingerichtet.</div>
+            <div class="card-meta">
+              <span class="chip chip-source">BVV-Beschluss</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-date">18.01.2026</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-location">Marzahn-Nord</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Location (Marzahn-Nord) -->
+          <div class="feed-card category-location" data-tags="marzahn-nord">
+            <div class="card-title">Tempo-30-Zone M&auml;rkische Allee erweitert</div>
+            <div class="card-summary">Abschnitt zwischen Blumberger Damm und Landsberger Allee wird ab M&auml;rz dauerhaft Tempo 30.</div>
+            <div class="card-meta">
+              <span class="chip chip-source">BVV-Beschluss</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-date">03.02.2026</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-location">Marzahn-Nord</span>
+            </div>
+          </div>
+
+          <!-- Card 6: Occasion (Bauvorhaben) -->
+          <div class="feed-card category-occasion" data-tags="bauvorhaben">
+            <div class="card-title">B&uuml;rgerbeteiligung: Neubaugebiet Cecilienstra&szlig;e</div>
+            <div class="card-summary">&Ouml;ffentliche Anh&ouml;rung am 22. M&auml;rz. Online-Anmeldung ab sofort m&ouml;glich.</div>
+            <div class="card-meta">
+              <span class="chip chip-source">Bezirksamt MaHe</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-date">10.02.2026</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-occasion">Bauvorhaben</span>
+            </div>
+          </div>
+
+          <!-- Card 7: Mixed (Eltern/Kita + Hellersdorf-Nord) -->
+          <div class="feed-card category-mixed" data-tags="eltern-kita hellersdorf-nord">
+            <div class="card-title">Kitapl&auml;tze: 120 neue Pl&auml;tze in Hellersdorf-Nord</div>
+            <div class="card-summary">Neubau-Kita er&ouml;ffnet im August. Bevorzugte Vergabe an Anwohner:innen des Einzugsgebiets.</div>
+            <div class="card-meta">
+              <span class="chip chip-source">Bezirksamt MaHe</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-date">15.02.2026</span>
+              <span class="card-meta-separator"></span>
+              <span class="chip chip-journey">Eltern / Kita</span>
+              <span class="chip chip-location">Hellersdorf-Nord</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">
+        MeinBezirk ist ein Konzept von Known Unknowns GmbH, entwickelt im Rahmen des KI-Prototyp-Projekts f&uuml;r den Bezirk Marzahn-Hellersdorf. Dies ist keine offizielle Seite des Bezirksamts.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const checkboxes = document.querySelectorAll('.filter-checkbox');
+      const cards = document.querySelectorAll('.feed-card');
+      const counter = document.getElementById('feed-counter');
+      const filtersSection = document.getElementById('filters');
+
+      function getActiveTags() {
+        const tags = new Set();
+        checkboxes.forEach(cb => {
+          if (cb.checked) tags.add(cb.dataset.tag);
+        });
+        return tags;
+      }
+
+      function updateFeed() {
+        const activeTags = getActiveTags();
+        let visible = 0;
+        const total = cards.length;
+
+        cards.forEach(card => {
+          const cardTags = card.dataset.tags.split(' ');
+          const matches = activeTags.size === 0 || cardTags.some(tag => activeTags.has(tag));
+
+          if (matches) {
+            card.classList.remove('dimmed');
+            visible++;
+          } else {
+            card.classList.add('dimmed');
+          }
+        });
+
+        if (activeTags.size === 0) {
+          counter.innerHTML = `<strong>${total}</strong> Meldungen aus Ihrem Bezirk`;
+        } else {
+          counter.innerHTML = `<strong>${visible}</strong> von ${total} Meldungen betreffen Sie`;
+        }
+      }
+
+      checkboxes.forEach(cb => cb.addEventListener('change', updateFeed));
+      updateFeed();
+
+      // Sticky shadow effect
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          filtersSection.classList.toggle('is-stuck', !entry.isIntersecting);
+        },
+        { threshold: 1, rootMargin: '-1px 0px 0px 0px' }
+      );
+
+      // Create a sentinel element just above the filters
+      const sentinel = document.createElement('div');
+      sentinel.style.height = '1px';
+      sentinel.style.position = 'absolute';
+      sentinel.style.top = '-1px';
+      sentinel.style.width = '100%';
+      filtersSection.style.position = 'sticky';
+      filtersSection.style.top = '0';
+      filtersSection.insertBefore(sentinel, filtersSection.firstChild);
+      observer.observe(sentinel);
+    });
+  </script>
+
+</body>
+</html>
