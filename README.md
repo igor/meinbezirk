@@ -37,4 +37,6 @@ Forks und Pull Requests sind sehr willkommen. Dieses Toolkit wird besser, wenn M
 
 ## Attribution
 
-Igor Schwarzmann / [Known Unknowns GmbH](https://knownunknowns.de)
+Igor Schwarzmann
+Known Unknowns GmbH · Fregestr. 65 · 12159 Berlin
+Geschäftsführer: Igor Schwarzmann · Amtsgericht Charlottenburg
