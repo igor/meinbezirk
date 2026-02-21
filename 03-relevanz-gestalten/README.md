@@ -55,6 +55,8 @@ Was steht an? Was passiert gerade?
 - Heizsaison
 - Bauvorhaben
 - Wahlen
+- Verkehr
+- Soziales
 
 Anlässe sind zeitgebunden. Sie ändern sich. Manche sind saisonal (Heizsaison), manche zyklisch (Wahlen), manche akut (Bauvorhaben). Diese Achse erfordert laufende Pflege.
 
@@ -70,7 +72,7 @@ Drei Szenarien zeigen, wie die Filterlogik in der Praxis funktioniert. Sie basie
 
 **Szenario 1 — Eltern mit Kita-Kind in Tempelhof.** Ayşe hat ein Kind in einer Kita in Tempelhof. Sie setzt die Filter auf Lebenslage: Eltern/Kita und Ort: Tempelhof. Im Feed erscheint die KitaFöG-Novelle zur Zahnpflege-Pflicht und der Neubau der Integrierten Sekundarschule in der Eisenacher Straße. Ohne MeinBezirk hätte sie davon bei einem zufälligen Gespräch mit der Kita-Leitung erfahren — oder gar nicht.
 
-**Szenario 2 — Mieterin in Friedenau.** Katrin wohnt zur Miete in Friedenau. Sie filtert nach Lebenslage: Mieter:in und Ort: Friedenau. Sie sieht den neuen Mietspiegel 2026 und den Sanierungsbeschluss für den Viktoria-Luise-Platz. Die Frage, die sie mitbringt, ist nicht „Was hat die BVV beschlossen?" sondern „Wird bei mir etwas gebaut? Ändert sich meine Miete?"
+**Szenario 2 — Mieterin in Friedenau.** Katrin wohnt zur Miete in Friedenau. Sie filtert nach Lebenslage: Mieter:in und Ort: Friedenau. Sie sieht den neuen Mietspiegel 2026, die geplante Umgestaltung des Renée-Sintenis-Platzes und den neuen Radfahrstreifen auf der Bundesallee. Die Frage, die sie mitbringt, ist nicht „Was hat die BVV beschlossen?" sondern „Wird bei mir etwas gebaut? Ändert sich meine Miete?"
 
 **Szenario 3 — Politisch Interessierter, bezirksweit.** Thomas interessiert sich für Bezirkspolitik, ohne eine spezifische Lebenslage. Er setzt keinen Lebenslagen-Filter, wählt aber Anlass: Wahlen und lässt alle Ortsteile aktiv. Er bekommt einen Überblick über laufende BVV-Entscheidungen und kann gezielt in Themen einsteigen, die ihn betreffen.
 
