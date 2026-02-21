@@ -35,7 +35,7 @@ Das ist keine zumutbare Erwartung.
 
 ## Der Ansatz
 
-Das GDS-Designprinzip #1 lautet: "Start with user needs." Nicht mit Verwaltungsstrukturen. Nicht mit Organigrammen. Mit den Fragen, die Bürger tatsächlich haben.
+Der [Government Digital Service (GDS)](https://www.gov.uk/guidance/government-design-principles) ist die Digitalabteilung der britischen Regierung. Ihre Gestaltungsprinzipien für öffentliche Dienste gelten international als Maßstab. Prinzip #1 lautet: "Start with user needs." Nicht mit Verwaltungsstrukturen. Nicht mit Organigrammen. Mit den Fragen, die Bürger tatsächlich haben.
 
 MeinBezirk organisiert Informationen nach drei Dimensionen:
 

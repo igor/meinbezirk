@@ -102,7 +102,7 @@ Neben der Recherche sind KI-Werkzeuge für die Verarbeitung der gefundenen Daten
 
 - [Perplexity](https://perplexity.ai) — KI-gestützte Recherche mit Quellenangaben. Gut für die strukturierte Suche in öffentlichen Quellen.
 - [Claude](https://claude.ai) — Textaufbereitung, Zusammenfassungen, Übersetzung in verständliche Sprache.
-- [ChatGPT](https://chat.openai.com) — Alternative für Textaufbereitung und Zusammenfassungen.
+- [Mistral](https://chat.mistral.ai) — Alternative für Textaufbereitung und Zusammenfassungen.
 
 **Quelloffen und lokal:**
 
@@ -146,7 +146,7 @@ In anderen Bundesländern sieht es ähnlich fragmentiert aus. Das ist die Realit
 
 Das vereinfacht die Datenabfrage erheblich. Statt die Weboberfläche eines Ratsinformationssystems zu scrapen, kann man strukturierte Daten über eine API abrufen.
 
-Ob deine Stadt OParl unterstützt, prüfst du unter [api.oparl.org](https://api.oparl.org).
+Ob deine Stadt OParl unterstützt, prüfst du über die API unter [oparl.politik-bei-uns.de](https://oparl.politik-bei-uns.de/system).
 
 ### Politik bei uns
 
@@ -158,7 +158,7 @@ Ob deine Stadt OParl unterstützt, prüfst du unter [api.oparl.org](https://api.
 
 2. **Open-Data-Portal prüfen.** Viele Städte betreiben eigene Open-Data-Portale mit strukturierten Datensätzen zu Verwaltung, Planung und Infrastruktur.
 
-3. **OParl-Unterstützung prüfen.** Unter [api.oparl.org](https://api.oparl.org) nachsehen, ob deine Stadt eine OParl-kompatible Schnittstelle anbietet.
+3. **OParl-Unterstützung prüfen.** Unter [oparl.politik-bei-uns.de](https://oparl.politik-bei-uns.de/system) nachsehen, ob deine Stadt eine OParl-kompatible Schnittstelle anbietet.
 
 4. **Sitzungsprotokolle suchen.** BVV-, Stadtrat- oder Gemeinderatsprotokolle auf der Website deiner Stadt suchen. Oft sind sie unter "Politik" oder "Bürgerservice" verlinkt.
 

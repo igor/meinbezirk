@@ -75,8 +75,8 @@ Alle in diesem Toolkit beschriebenen Schritte können mit quelloffenen, nicht-ko
 - **Claude** — [claude.ai](https://claude.ai)
   KI-Assistent. Geeignet für Textaufbereitung, Zusammenfassungen und Übersetzung in verständliche Sprache.
 
-- **ChatGPT** — [chat.openai.com](https://chat.openai.com)
-  KI-Assistent. Alternative für Textaufbereitung und Zusammenfassungen.
+- **Mistral** — [chat.mistral.ai](https://chat.mistral.ai)
+  KI-Assistent. Europäischer Anbieter, Alternative für Textaufbereitung und Zusammenfassungen.
 
 ### Quelloffen und lokal
 
