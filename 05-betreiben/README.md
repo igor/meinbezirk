@@ -57,6 +57,18 @@ Was die Stadt davon hat. In ihrer Sprache.
 
 **Passt zur Digitalisierungsstrategie.** OZG, Registermodernisierung, digitale Verwaltung — MeinBezirk passt in bestehende Strategien. Es ist kein Fremdkörper. Es ist eine logische Ergänzung.
 
+## Die letzte Meile ist analog
+
+Digitale Plattformen erreichen bestimmte Menschen nicht. Ältere Bewohner ohne Smartphone oder stabilen Internetzugang. Menschen, die der Technik misstrauen. Wenn MeinBezirk Transparenz für alle schaffen soll, braucht es analoge Begleitkanäle.
+
+Konkrete Möglichkeiten:
+
+- **Aushänge in Stadtteilbüros und Bürgerämtern.** Ein monatlicher A4-Einseiter mit den wichtigsten Entscheidungen. QR-Code verweist auf die digitale Version für alle, die mehr wissen wollen.
+- **Gedruckte Zusammenfassungen.** Quartalsweise, verteilt über lokale Vereine, Seniorentreffs, Bibliotheken.
+- **Kooperationen mit lokalen Organisationen.** Migrantenvereine, Nachbarschaftszentren, Kirchengemeinden: Sie erreichen Menschen, die keine städtische Website besuchen.
+
+Der Aufwand dafür ist gering, wenn die digitale Aufbereitung bereits steht. Ein PDF-Export der aktuellen Karten, formatiert für Druck. Die Technik ist das Rückgrat. Aber die letzte Meile zum Bürger ist oft ein Blatt Papier an der Pinnwand im Bürgeramt.
+
 ## Aufwand und Kosten
 
 Ehrliche Einschätzung. Nicht werblich.

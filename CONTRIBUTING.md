@@ -16,6 +16,14 @@ Adapting MeinBezirk for another German city:
 
 Especially valuable: documenting which Ratsinformationssystem your city uses and how to access its data. Every city handles this differently. That documentation helps everyone.
 
+## Für deutsche Civic-Tech-Communities
+
+Du bist Teil eines [Code for Germany](https://codefor.de) Labs oder einer lokalen Civic-Tech-Gruppe? Dann bist du die Zielgruppe dieses Toolkits. Die OK Labs kennen die Datenlandschaft ihrer Stadt, haben Kontakte in die Verwaltung und wissen, welche Ratsinformationssysteme lokal im Einsatz sind.
+
+Was besonders hilft: Dokumentiere, wie die Datenrecherche in deiner Stadt funktioniert hat. Welches System wird genutzt? Wo liegen die Hürden? Was fehlt? Diese Erfahrungsberichte machen das Toolkit für die nächste Stadt brauchbarer.
+
+Kontakt zu den Labs: [codefor.de](https://codefor.de). Die [Open Knowledge Foundation Deutschland](https://okfn.de) koordiniert das Netzwerk.
+
 ## Contributing from another country
 
 The methodology is transferable. The data landscape will be different.

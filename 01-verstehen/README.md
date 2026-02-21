@@ -35,7 +35,7 @@ Das ist keine zumutbare Erwartung.
 
 ## Der Ansatz
 
-Der [Government Digital Service (GDS)](https://www.gov.uk/guidance/government-design-principles) ist die Digitalabteilung der britischen Regierung. Ihre Gestaltungsprinzipien für öffentliche Dienste gelten international als Maßstab. Prinzip #1 lautet: "Start with user needs." Nicht mit Verwaltungsstrukturen. Nicht mit Organigrammen. Mit den Fragen, die Bürger tatsächlich haben.
+Der [Government Digital Service (GDS)](https://www.gov.uk/guidance/government-design-principles) ist die Digitalabteilung der britischen Regierung. Ihre Gestaltungsprinzipien für öffentliche Dienste gelten international als Maßstab. Prinzip #1 lautet: „Start with user needs.“ Nicht mit Verwaltungsstrukturen. Nicht mit Organigrammen. Mit den Fragen, die Bürger tatsächlich haben.
 
 MeinBezirk organisiert Informationen nach drei Dimensionen:
 
@@ -46,6 +46,17 @@ MeinBezirk organisiert Informationen nach drei Dimensionen:
 Statt Bürger durch Verwaltungssysteme zu schicken, überbrückt KI die Lücke zwischen bürokratischen Quelldaten und verständlicher Information. Amtsdeutsch wird zusammengefasst. Relevanz wird nach Ort und Lebenslage gefiltert.
 
 Dieser Ansatz wird in den folgenden Phasen konkretisiert: von der Datenrecherche ([Phase 02](../02-daten-finden/)) bis zum Betrieb ([Phase 05](../05-betreiben/)).
+
+## MeinBezirk im Civic-Tech-Ökosystem
+
+MeinBezirk ist nicht das erste Projekt, das kommunale Transparenz verbessern will. Es besetzt aber eine spezifische Lücke. Die bestehende Landschaft lässt sich als Schichten verstehen:
+
+- **Offene Daten** ([GovData](https://www.govdata.de), kommunale Open-Data-Portale): Rohdaten maschinenlesbar bereitstellen. Die Grundlage, auf der alles aufbaut.
+- **Parlamentarische Accountability** ([Abgeordnetenwatch](https://www.abgeordnetenwatch.de)): Bürger können Abgeordnete direkt und öffentlich befragen. Macht Entscheider greifbar.
+- **Bürgerbeteiligung** ([CONSUL Democracy](https://consuldemocracy.org)): Bürger stimmen ab, reichen Vorschläge ein, gestalten Haushalte mit. Partizipation als Werkzeug.
+- **Informationszugang** (MeinBezirk): Entscheidungen verständlich und relevant aufbereiten. Die Übersetzungsschicht zwischen Verwaltungssystemen und Bürgern.
+
+Diese Schichten ergänzen sich. Wer mitentscheiden soll (CONSUL), muss erst verstehen, was entschieden wird (MeinBezirk). Wer Abgeordnete befragen will (Abgeordnetenwatch), braucht Kontext über die Entscheidungslage. MeinBezirk liefert diesen Kontext.
 
 ## Quellen
 

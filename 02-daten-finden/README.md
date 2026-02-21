@@ -55,7 +55,7 @@ Der Prozess hatte vier Schritte:
 
 2. **Relevanz filtern.** KI eingesetzt, um aus der Masse bürokratischer Dokumente die Einträge zu identifizieren, die Bürger tatsächlich betreffen. Nicht jede Drucksache ist relevant. Viele betreffen Verwaltungsinterna.
 
-3. **Sprache übersetzen.** Amtsdeutsch in verständliche Sprache umgewandelt. Eine Drucksache mit dem Titel "Große Anfrage zur Umsetzung der Maßnahmen gemäß Schulentwicklungsplan" wird zu: "Wie weit ist die Sanierung der Schulen im Bezirk?"
+3. **Sprache übersetzen.** Amtsdeutsch in verständliche Sprache umgewandelt. Eine Drucksache mit dem Titel „Große Anfrage zur Umsetzung der Maßnahmen gemäß Schulentwicklungsplan“ wird zu: „Wie weit ist die Sanierung der Schulen im Bezirk?“
 
 4. **Fakten verifizieren.** Jede KI-generierte Zusammenfassung gegen das Originaldokument geprüft. Zahlen, Daten, Beschlüsse mit der Quelle abgeglichen.
 
@@ -140,13 +140,15 @@ Deutschland hat kein einheitliches Ratsinformationssystem. Jede Kommune entschei
 
 In anderen Bundesländern sieht es ähnlich fragmentiert aus. Das ist die Realität, mit der jede Adaption umgehen muss.
 
-### OParl: Der offene Standard
+### OParl: Der Schlüssel zur Übertragbarkeit
 
-[OParl](https://oparl.org) ist eine standardisierte API-Spezifikation für den Zugriff auf Ratsinformationssysteme. Städte, deren System OParl unterstützt, bieten maschinenlesbaren Zugang zu ihren kommunalen Entscheidungsdaten.
+Die Fragmentierung der Ratsinformationssysteme (siehe Tabelle oben) ist das größte Hindernis für die Übertragbarkeit. Jede Stadt hat ein anderes System, jedes System hat eine andere Oberfläche, andere Datenstrukturen, andere Exportformate. Ohne Standard müsste jede MeinBezirk-Adaption von vorn anfangen.
 
-Das vereinfacht die Datenabfrage erheblich. Statt die Weboberfläche eines Ratsinformationssystems zu scrapen, kann man strukturierte Daten über eine API abrufen.
+[OParl](https://oparl.org) löst dieses Problem. OParl ist eine offene API-Spezifikation für Ratsinformationssysteme. Städte, deren System OParl unterstützt, bieten maschinenlesbaren Zugang zu ihren Entscheidungsdaten über eine einheitliche Schnittstelle. Drucksachen, Sitzungen, Tagesordnungen, Beschlüsse: alles in einem konsistenten JSON-Format, abrufbar ohne Scraping.
 
-Ob deine Stadt OParl unterstützt, prüfst du über die API unter [oparl.politik-bei-uns.de](https://oparl.politik-bei-uns.de/system).
+Für MeinBezirk-Adaptionen bedeutet das: Wenn deine Stadt OParl unterstützt, kannst du die Datenrecherche (Teil 1 dieses Kapitels) weitgehend automatisieren. Statt manuell durch ALLRIS oder SD.net zu klicken, rufst du die API ab. Das reduziert den Aufwand für den laufenden Betrieb erheblich.
+
+OParl-Unterstützung prüfen: [oparl.politik-bei-uns.de](https://oparl.politik-bei-uns.de/system). Dort siehst du, welche Städte bereits eine OParl-kompatible Schnittstelle anbieten.
 
 ### Politik bei uns
 
@@ -154,13 +156,13 @@ Ob deine Stadt OParl unterstützt, prüfst du über die API unter [oparl.politik
 
 ### Checkliste: Daten in deiner Stadt finden
 
-1. **Ratsinformationssystem suchen.** Suche "[Stadt] Ratsinformationssystem" in einer Suchmaschine. Die meisten Kommunen haben eins.
+1. **OParl-Unterstützung prüfen.** Das ist der wichtigste erste Schritt. Unter [oparl.politik-bei-uns.de](https://oparl.politik-bei-uns.de/system) nachsehen, ob deine Stadt eine OParl-kompatible Schnittstelle anbietet. Wenn ja, hast du strukturierten API-Zugang und kannst vieles automatisieren.
 
-2. **Open-Data-Portal prüfen.** Viele Städte betreiben eigene Open-Data-Portale mit strukturierten Datensätzen zu Verwaltung, Planung und Infrastruktur.
+2. **Ratsinformationssystem identifizieren.** Suche „[Stadt] Ratsinformationssystem“ in einer Suchmaschine. Die meisten Kommunen haben eins. Notiere, welches System im Einsatz ist (ALLRIS, SD.net, Session, etc.).
 
-3. **OParl-Unterstützung prüfen.** Unter [oparl.politik-bei-uns.de](https://oparl.politik-bei-uns.de/system) nachsehen, ob deine Stadt eine OParl-kompatible Schnittstelle anbietet.
+3. **Open-Data-Portal prüfen.** Viele Städte betreiben eigene Open-Data-Portale mit strukturierten Datensätzen zu Verwaltung, Planung und Infrastruktur.
 
-4. **Sitzungsprotokolle suchen.** BVV-, Stadtrat- oder Gemeinderatsprotokolle auf der Website deiner Stadt suchen. Oft sind sie unter "Politik" oder "Bürgerservice" verlinkt.
+4. **Sitzungsprotokolle suchen.** BVV-, Stadtrat- oder Gemeinderatsprotokolle auf der Website deiner Stadt suchen. Oft sind sie unter „Politik“ oder „Bürgerservice“ verlinkt.
 
 5. **Politik bei uns prüfen.** Unter [politik-bei-uns.de](https://politik-bei-uns.de) nachsehen, ob deine Stadt bereits abgedeckt ist.
 
