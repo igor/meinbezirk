@@ -64,6 +64,18 @@ Die drei Achsen beantworten drei Grundfragen: Wer bin ich? Wo bin ich? Was passi
 
 Das Prinzip der Achsen ist übertragbar. Die konkreten Werte sind es nicht. Kopiere die Struktur, nicht den Inhalt.
 
+## Beispiel-Szenarien
+
+Drei Szenarien zeigen, wie die Filterlogik in der Praxis funktioniert. Sie basieren auf dem [Berliner Prototyp](../index.html).
+
+**Szenario 1 — Eltern mit Kita-Kind in Tempelhof.** Ayşe hat ein Kind in einer Kita in Tempelhof. Sie setzt die Filter auf Lebenslage: Eltern/Kita und Ort: Tempelhof. Im Feed erscheint die KitaFöG-Novelle zur Zahnpflege-Pflicht und der Neubau der Integrierten Sekundarschule in der Eisenacher Straße. Ohne MeinBezirk hätte sie davon bei einem zufälligen Gespräch mit der Kita-Leitung erfahren — oder gar nicht.
+
+**Szenario 2 — Mieterin in Friedenau.** Katrin wohnt zur Miete in Friedenau. Sie filtert nach Lebenslage: Mieter:in und Ort: Friedenau. Sie sieht den neuen Mietspiegel 2026 und den Sanierungsbeschluss für den Viktoria-Luise-Platz. Die Frage, die sie mitbringt, ist nicht „Was hat die BVV beschlossen?" sondern „Wird bei mir etwas gebaut? Ändert sich meine Miete?"
+
+**Szenario 3 — Politisch Interessierter, bezirksweit.** Thomas interessiert sich für Bezirkspolitik, ohne eine spezifische Lebenslage. Er setzt keinen Lebenslagen-Filter, wählt aber Anlass: Wahlen und lässt alle Ortsteile aktiv. Er bekommt einen Überblick über laufende BVV-Entscheidungen und kann gezielt in Themen einsteigen, die ihn betreffen.
+
+Die Szenarien zeigen das Grundprinzip: Nicht die Bürger müssen die Verwaltungsstruktur verstehen. Die Information muss die Bürger finden.
+
 ## Weitere Dimensionen
 
 Die drei Achsen des Berliner Prototyps sind ein Anfang. Andere Dimensionen können sinnvoll sein. Die folgende Liste ist nicht vollständig. Sie soll zum Nachdenken anregen, nicht zum Abhaken.
