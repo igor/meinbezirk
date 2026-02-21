@@ -35,6 +35,11 @@ Der Berliner Prototyp wurde in etwa 90 Minuten mit KI-Werkzeugen gebaut. Der Pun
 
 Forks und Pull Requests sind sehr willkommen. Dieses Toolkit wird besser, wenn Menschen es für ihre Städte adaptieren, Fehler korrigieren und Lücken füllen. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to adapt it for your city or country.
 
+## Lizenz
+
+Code (`index.html`): [MIT License](LICENSE)
+Inhalte (alle `.md`-Dateien): [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)
+
 ## Attribution
 
 Igor Schwarzmann
