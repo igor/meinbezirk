@@ -59,7 +59,7 @@ Was die Stadt davon hat. In ihrer Sprache.
 
 ## Die letzte Meile ist analog
 
-Digitale Plattformen erreichen bestimmte Menschen nicht. Ältere Bewohner, die kein Smartphone nutzen. Menschen ohne stabilen Internetzugang. Menschen, die der Technik misstrauen. Wenn MeinBezirk Transparenz für alle schaffen soll, braucht es analoge Begleitkanäle.
+Digitale Plattformen erreichen bestimmte Menschen nicht. Ältere Bewohner ohne Smartphone oder stabilen Internetzugang. Menschen, die der Technik misstrauen. Wenn MeinBezirk Transparenz für alle schaffen soll, braucht es analoge Begleitkanäle.
 
 Konkrete Möglichkeiten:
 
